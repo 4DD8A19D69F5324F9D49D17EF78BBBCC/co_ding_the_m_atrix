@@ -3,6 +3,7 @@ Basic types:
 file - a png file on disk
 image - a list of list of pixels. pixels can be triples of RGB intensities, 
         or single grayscale values.
+vec - a vector with domain {0..width-1}x{0..height-1}
 display - not a type per se, but rather causing the type to be shown on screen
 
 Functions convert between these formats, and also can write to temporary files
@@ -13,8 +14,7 @@ and display them with a web browser.
 # Note that right now, we ignore the alpha channel, but allow it. - @dbp
 
 import png
-import numbers
-import collections
+import vec
 
 # Native imports
 import webbrowser
@@ -23,28 +23,21 @@ import os
 import atexit
 
 # Round color coordinate to nearest int and clamp to [0, 255]
-def _color_int(col):
+def color_int(col):
     return max(min(round(col), 255), 0)
 
 # utility conversions, between boxed pixel and flat pixel formats
 # the png library uses flat, we use boxed.
-def _boxed2flat(row):
-    return [_color_int(x) for box in row for x in box]
+def boxed2flat(row):
+    return [color_int(x) for box in row for x in box]
 
-def _flat2boxed(row):
+def flat2boxed(row):
     # Note we skip every 4th element, thus eliminating the alpha channel
     return [tuple(row[i:i+3]) for i in range(0, len(row), 4)]
 
 ## Image conversions
 def isgray(image):
-    "tests whether the image is grayscale"
-    col = image[0][0]
-    if isinstance(col, numbers.Number):
-        return True
-    elif isinstance(col, collections.Iterable) and len(col) == 3:
-        return False
-    else:
-        raise TypeError('Unrecognized image type')
+    return type(image[0][0]) == int
 
 def color2gray(image):
     """ Converts a color image to grayscale """
@@ -69,7 +62,7 @@ def file2image(path):
     """ Reads an image into a list of lists of pixel values (tuples with 
         three values). This is a color image. """
     (w, h, p, m) = png.Reader(filename = path).asRGBA() # force RGB and alpha
-    return [_flat2boxed(r) for r in p]
+    return [flat2boxed(r) for r in p]
 
 
 def image2file(image, path):
@@ -81,17 +74,102 @@ def image2file(image, path):
         img = image
     with open(path, 'wb') as f:
         png.Writer(width=len(image[0]), height=len(image)).write(f, 
-            [_boxed2flat(r) for r in img])
+            [boxed2flat(r) for r in img])
+
+## To and from vecs
+def image2vec(image):
+    """ Converts an image in list of lists format to a vector. Will work with
+        either color or grayscale. """
+    if isgray(image):
+        D = {(x,y) for x in range(len(image[0]))
+                   for y in range(len(image))}
+        F = {(x,y):image[y][x] for (x,y) in D}
+    else:
+        D = {(x,y,c) for c in ['r','g','b']
+                     for x in range(len(image[0]))
+                     for y in range(len(image))}
+        F = dict()
+        for y in range(len(image)):
+            for x in range(len(image[y])):
+                F[(x,y,'r')] = image[y][x][0]
+                F[(x,y,'g')] = image[y][x][1]
+                F[(x,y,'b')] = image[y][x][2]
+    return vec.Vec(D, F)
+
+def vec2image(vec):
+    """ Converts a vector to an image in list of lists format """
+    image = []
+    width = max(vec.D, key=lambda p: p[0])[0]
+    height = max(vec.D, key=lambda p: p[1])[1]
+    # check if grayscale
+    e = vec.D.pop()
+    vec.D.add(e)
+    gray = len(e) == 2
+    for y in range(height):
+        row = []
+        for x in range(width):
+            if gray:
+                row += [vec[(x,y)]]
+            else:
+                row += [(vec[(x,y,'r')], vec[(x,y,'g')], vec[(x,y,'b')])]
+        image += [row]
+    return image
+    
+## Shortcuts - files to vecs and vice-versa
+def file2vec(path):
+    """ Reads an image from a file and turns it into a vector """
+    return image2vec(file2image(path))
+
+def vec2file(vec, path):
+    """ Reads an image from a file and turns it into a vector """
+    image2file(vec2image(vec), path)
 
 ## Display functions
 def image2display(image, browser=None):
     """ Stores an image in a temporary location and displays it on screen
         using a web browser. """
-    path = _create_temp('.png')
+    path = create_temp('.png')
     image2file(image, path)
-    hpath = _create_temp('.html')
+    hpath = create_temp('.html')
     with open(hpath, 'w') as h:
         h.writelines(["<html><body><img src='file://%s'/></body></html>" % path])
+    openinbrowser('file://%s' % hpath, browser)
+
+def vec2display(vec):
+    """ Stores an image in vec format in a temporary location and displays it
+        on screen using a web browser. """
+    image2display(vec2image(vec))
+
+def image2animate(image_array, delay=1, browser=None):
+    """ Takes an array of images and displays them as an animation with `delay`
+        seconds of pause between each one """
+    hpath = create_temp('.html')
+    with open(hpath, 'w') as h:
+        h.writelines(
+            ["<html>\n"
+            ,"<script type='text/javascript'>\n"
+            ,"function start() {\n"
+            ,"var c = document.getElementById('container');\n"
+            ,"var active = c.firstChild;\n"
+            ,"active.style.zIndex = 1;\n"
+            ,"function go() {\n"
+            ,"  active.style.zIndex = 0;\n"
+            ,"  active = active.nextSibling;\n"
+            ,"  if (active != null) {\n"
+            ,"    active.style.zIndex = 1;\n"
+            ,"    window.setTimeout(go,%d);\n" % int(delay * 1000)
+            ,"  }\n"
+            ,"}\n"
+            ,"window.setTimeout(go,%d);\n" % int(delay * 1000)
+            ,"};\n"
+            ,"</script>\n"
+
+            ,"<body onload='start()'><div id='container' style='position: relative;'>"])
+        for im in image_array:
+            path = create_temp('.png')
+            image2file(im, path)
+            h.writelines(["<img src='%s' style='z-index: 0; position: absolute;'>" % path])
+        h.writelines(["</div>\n"])
     openinbrowser('file://%s' % hpath, browser)
 
 _browser = None
@@ -136,12 +214,12 @@ def openinbrowser(url, browser=None):
 
 # Create a temporary file that will be removed at exit
 # Returns a path to the file
-def _create_temp(suffix='', prefix='tmp', dir=None):
+def create_temp(suffix='', prefix='tmp', dir=None):
     _f, path = tempfile.mkstemp(suffix, prefix, dir)
     os.close(_f)
-    _remove_at_exit(path)
+    remove_at_exit(path)
     return path
 
 # Register a file to be removed at exit
-def _remove_at_exit(path):
+def remove_at_exit(path):
     atexit.register(os.remove, path)
