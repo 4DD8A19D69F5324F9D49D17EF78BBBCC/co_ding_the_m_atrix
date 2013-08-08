@@ -1,4 +1,6 @@
 from mat import Mat
+from matutil import *
+from image_mat_util import *
 import math
 
 ## Task 1
@@ -12,7 +14,7 @@ def identity(labels = {'x','y','u'}):
     identity().  Additionally, if you want {'r','g','b'}, or another set, to be the
     labels of your matrix, you can call identity({'r','g','b'}).  
     '''
-    pass
+    return Mat((labels,labels),{ (label,label):1 for label in labels})
 
 ## Task 2
 def translation(x,y):
@@ -20,7 +22,10 @@ def translation(x,y):
     Input:  An x and y value by which to translate an image.
     Output:  Corresponding 3x3 translation matrix.
     '''
-    pass
+    id = identity()
+    id[('x','u')]=x;
+    id[('y','u')]=y;
+    return id;
 
 ## Task 3
 def scale(a, b):
@@ -28,7 +33,10 @@ def scale(a, b):
     Input:  Scaling parameters for the x and y direction.
     Output:  Corresponding 3x3 scaling matrix.
     '''
-    pass
+    id = identity()
+    id[('x','x')]=a
+    id[('y','y')]=b
+    return id
 
 ## Task 4
 def rotation(angle):
@@ -37,7 +45,12 @@ def rotation(angle):
     Output:  Corresponding 3x3 rotation matrix.
     Note that the math module is imported.
     '''
-    pass
+    id = identity()
+    id[('x','x')]=math.cos(angle)
+    id[('x','y')]=-math.sin(angle)
+    id[('y','x')]=math.sin(angle)
+    id[('y','y')]=math.cos(angle)
+    return id
 
 ## Task 5
 def rotate_about(x,y,angle):
@@ -47,15 +60,15 @@ def rotate_about(x,y,angle):
     Output:  Corresponding 3x3 rotation matrix.
     It might be helpful to use procedures you already wrote.
     '''
-    pass
 
+    return translation(x,y)*rotation(angle)*translation(-x,-y)
 ## Task 6
 def reflect_y():
     '''
     Input:  None.
     Output:  3x3 Y-reflection matrix.
     '''
-    pass
+    return scale(-1,1)
 
 ## Task 7
 def reflect_x():
@@ -63,7 +76,7 @@ def reflect_x():
     Inpute:  None.
     Output:  3x3 X-reflection matrix.
     '''
-    pass
+    return scale(1,-1)
     
 ## Task 8    
 def scale_color(scale_r,scale_g,scale_b):
@@ -71,7 +84,11 @@ def scale_color(scale_r,scale_g,scale_b):
     Input:  3 scaling parameters for the colors of the image.
     Output:  Corresponding 3x3 color scaling matrix.
     '''
-    pass
+    id = identity({'r','g','b'})
+    id[('r','r')]=scale_r
+    id[('g','g')]=scale_g
+    id[('b','b')]=scale_b
+    return id
 
 ## Task 9
 def grayscale():
@@ -79,7 +96,13 @@ def grayscale():
     Input: None
     Output: 3x3 greyscale matrix.
     '''
-    pass   
+    id = identity({'r','g','b'})
+    transdict = { 'r':77.0/256.0 ,'g':151.0/256.0,'b':28.0/256.0}
+    for k1 in transdict:
+        for k2 in transdict:
+            id[(k1,k2)]=transdict[k2]
+    return id
+
 
 ## Task 10
 def reflect_about(p1,p2):
@@ -88,5 +111,7 @@ def reflect_about(p1,p2):
     Output:  Corresponding 3x3 reflect about matrix.
     '''
     pass
+
+
 
 
