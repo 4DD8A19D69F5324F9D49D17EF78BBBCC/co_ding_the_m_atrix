@@ -15,9 +15,9 @@ from vec import Vec
 #
 # For example, [1, 3, 5] would mean 1*[2,0,4,0] + 3*[0,1,0,1] + 5*[0,0,-1,-1]
 
-rep_1 = [1,1,0]
-rep_2 = [0.5,1,1]
-rep_3 = [0,1,-1]
+rep_1 = [1, 1, 0]
+rep_2 = [0.5, 1, 1]
+rep_3 = [0, 1, -1]
 
 
 
@@ -25,11 +25,10 @@ rep_3 = [0,1,-1]
 # For each part, please provide your solution as a list of the coefficients for
 # the generators of V.
 
-lin_comb_coefficients_1 = [...]
-lin_comb_coefficients_2 = [...]
-lin_comb_coefficients_3 = [...]
-lin_comb_coefficients_4 = [...]
-
+lin_comb_coefficients_1 = [3, -1, 1]
+lin_comb_coefficients_2 = [0.5, -1.5, 1.0]
+lin_comb_coefficients_3 = [0.5, -5.5, 4.0]
+lin_comb_coefficients_4 = [1, -2, 1]
 
 
 ## Problem 3
@@ -37,9 +36,9 @@ lin_comb_coefficients_4 = [...]
 # For each part, please provide your solution as a list of the coefficients for
 # the generators of V.
 
-gf2_rep_1 = [...]
-gf2_rep_2 = [...]
-gf2_rep_3 = [...]
+gf2_rep_1 = [one, 0, one, 0]
+gf2_rep_2 = [one, 0, 0, one]
+gf2_rep_3 = [one, one, 0, one]
 
 
 
@@ -48,10 +47,10 @@ gf2_rep_3 = [...]
 # For each part, please provide your solution as a list of the coefficients for
 # the generators of V.
 
-gf2_lc_rep_1 = [...]
-gf2_lc_rep_2 = [...]
-gf2_lc_rep_3 = [...]
-gf2_lc_rep_4 = [...]
+gf2_lc_rep_1 = [0,0,0,0,one,one,0,0]
+gf2_lc_rep_2 = [0,0,0,0,0,0,one,one]
+gf2_lc_rep_3 = [one,0,0,one,0,0,0,0]
+gf2_lc_rep_4 = [one,0,one,0,0,0,0,0]
 
 
 
@@ -59,16 +58,16 @@ gf2_lc_rep_4 = [...]
 # For each part, please provide your solution as a list of the coefficients for
 # the generators of V.
 
-lin_dep_R_1 = [...]
-lin_dep_R_2 = [...]
-lin_dep_R_3 = [...]
+lin_dep_R_1 = [2,-1,-1]
+lin_dep_R_2 = [28,-7,4]
+lin_dep_R_3 = [-3,0,0,10,30]
 
 
 
 ## Problem 6
 # Please record your solution as a list of coefficients
 
-linear_dep_R_1 = [...]
+linear_dep_R_1 = [1,-1,3]
 linear_dep_R_2 = [...]
 linear_dep_R_3 = [...]
 
@@ -151,7 +150,6 @@ def rep2vec(u, veclist):
     pass
 
 
-
 ## Problem 14
 def vec2rep(veclist, v):
     '''
@@ -169,7 +167,6 @@ def vec2rep(veclist, v):
         True
     '''
     pass
-
 
 
 ## Problem 15
@@ -200,7 +197,6 @@ def is_superfluous(L, i):
     pass
 
 
-
 ## Problem 16
 def is_independent(L):
     '''
@@ -227,7 +223,6 @@ def is_independent(L):
     pass
 
 
-
 ## Problem 17
 def superset_basis(S, L):
     '''
@@ -247,7 +242,6 @@ def superset_basis(S, L):
         True
     '''
     pass
-
 
 
 ## Problem 18
