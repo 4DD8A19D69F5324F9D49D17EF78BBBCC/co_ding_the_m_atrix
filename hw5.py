@@ -7,40 +7,41 @@ from matutil import listlist2mat, coldict2mat
 from mat import Mat
 from GF2 import one
 from vec import Vec
+from hw4 import exchange,is_independent
 
 
 
 ## Problem 1
-w0 = list2vec([1,0,0])
-w1 = list2vec([0,1,0])
-w2 = list2vec([0,0,1])
+w0 = list2vec([1, 0, 0])
+w1 = list2vec([0, 1, 0])
+w2 = list2vec([0, 0, 1])
 
-v0 = list2vec([1,2,3])
-v1 = list2vec([1,3,3])
-v2 = list2vec([0,3,3])
+v0 = list2vec([1, 2, 3])
+v1 = list2vec([1, 3, 3])
+v2 = list2vec([0, 3, 3])
 
 # Fill in exchange_S1 and exchange_S2
 # with appropriate lists of 3 vectors
 
 exchange_S0 = [w0, w1, w2]
-exchange_S1 = [...]
-exchange_S2 = [...]
+exchange_S1 = [w0, v2, w2]
+exchange_S2 = [w0, v1, v0]
 exchange_S3 = [v0, v1, v2]
 
 
 
 ## Problem 2
-w0 = list2vec([0,one,0])
-w1 = list2vec([0,0,one])
-w2 = list2vec([one,one,one])
+w0 = list2vec([0, one, 0])
+w1 = list2vec([0, 0, one])
+w2 = list2vec([one, one, one])
 
-v0 = list2vec([one,0,one])
-v1 = list2vec([one,0,0])
-v2 = list2vec([one,one,0])
+v0 = list2vec([one, 0, one])
+v1 = list2vec([one, 0, 0])
+v2 = list2vec([one, one, 0])
 
 exchange_2_S0 = [w0, w1, w2]
-exchange_2_S1 = [...]
-exchange_2_S2 = [...]
+exchange_2_S1 = [w0, v1, w2]
+exchange_2_S2 = [v0, v1, w2]
 exchange_2_S3 = [v0, v1, v2]
 
 
@@ -61,7 +62,24 @@ def morph(S, B):
         [(Vec({0, 1, 2},{0: 1, 1: 1, 2: 0}), Vec({0, 1, 2},{0: 1, 1: 0, 2: 0})), (Vec({0, 1, 2},{0: 0, 1: 1, 2: 1}), Vec({0, 1, 2},{0: 0, 1: 1, 2: 0})), (Vec({0, 1, 2},{0: 1, 1: 0, 2: 1}), Vec({0, 1, 2},{0: 0, 1: 0, 2: 1}))]
 
     '''
-    pass
+    A = []
+    Sprime = S[:]
+    ret = []
+
+    while len(A) < len(B):
+        for vec in B:
+            A.append(vec)
+            if is_independent(A):
+                A.pop()
+                ejected = exchange(Sprime, A, vec)
+                Sprime[Sprime.index(ejected)] = vec
+                ret.append((vec, ejected))
+                A.append(vec)
+            else:
+                A.pop()
+    return ret
+
+
 
 
 
@@ -83,7 +101,7 @@ col_space_4 = [...]
 
 
 ## Problem 5
-def my_is_independent(L): 
+def my_is_independent(L):
     '''
     input:  A list, L, of Vecs
     output: A boolean indicating if the list is linearly independent
@@ -108,7 +126,7 @@ def my_is_independent(L):
 
 
 ## Problem 6
-def subset_basis(T): 
+def subset_basis(T):
     '''
     input: A list, T, of Vecs
     output: A list, S, containing Vecs from T, that is a basis for the
@@ -124,9 +142,8 @@ def subset_basis(T):
     pass
 
 
-
 ## Problem 7
-def my_rank(L): 
+def my_rank(L):
     '''
     input: A list, L, of Vecs
     output: The rank of the list of Vecs
@@ -164,9 +181,8 @@ def direct_sum_decompose(U_basis, V_basis, w):
     pass
 
 
-
 ## Problem 10
-def is_invertible(M): 
+def is_invertible(M):
     '''
     input: A matrix, M
     outpit: A boolean indicating if M is invertible.
@@ -191,9 +207,8 @@ def find_matrix_inverse(A):
     pass
 
 
-
 ## Problem 12
-def find_triangular_matrix_inverse(A): 
+def find_triangular_matrix_inverse(A):
     '''
     input: An upper triangular Mat, A, with nonzero diagonal elements
     output: Inverse of A
