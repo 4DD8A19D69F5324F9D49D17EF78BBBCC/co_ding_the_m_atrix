@@ -3,12 +3,13 @@
 
 from vecutil import list2vec
 from solver import solve
-from matutil import listlist2mat, coldict2mat
+from matutil import *
 from mat import Mat
 from GF2 import one
 from vec import Vec
 from hw4 import exchange, is_independent ,vec2rep
 from independence import *
+from triangular import *
 
 
 
@@ -182,7 +183,16 @@ def direct_sum_decompose(U_basis, V_basis, w):
     >>> direct_sum_decompose(U_basis, V_basis, w) == (Vec({0, 1, 2, 3, 4, 5},{0: 2.0, 1: 4.999999999999972, 2: 0.0, 3: 0.0, 4: 1.0, 5: 0.0}), Vec({0, 1, 2, 3, 4, 5},{0: 0.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 5: 0.0}))
     True
     '''
-    return vec2rep(U_basis + V_basis, w)
+    UV = coldict2mat(U_basis + V_basis)
+    U = coldict2mat(U_basis)
+    V = coldict2mat(V_basis)
+    W = solve(UV, w)
+    Wu = Vec(set(range(len(U_basis))), {i:W[i] for i in range(len(U_basis))})
+    Wv = Vec(set(range(len(V_basis))), {i:W[i+len(U_basis)] for i in range(len(V_basis))})
+    u = U * Wu
+    v = V * Wv
+    return (u, v)
+
 
 
 ## Problem 10
@@ -195,7 +205,10 @@ def is_invertible(M):
     >>> is_invertible(M)
     True
     '''
-    pass
+    if M.D[0] != M.D[1]:
+        return False
+    else:
+        return solve(M, Vec(M.D[0], {})) == Vec(M.D[0], {})
 
 
 ## Problem 11
@@ -208,7 +221,9 @@ def find_matrix_inverse(A):
     >>> find_matrix_inverse(M) == Mat(({0, 1, 2}, {0, 1, 2}), {(0, 1): one, (2, 0): 0, (0, 0): 0, (2, 2): one, (1, 0): one, (1, 2): 0, (1, 1): 0, (2, 1): 0, (0, 2): 0})
     True
     '''
-    pass
+    ret = [solve(A, Vec(A.D[0], {i: one})) for i in A.D[0]]
+    return coldict2mat(ret)
+
 
 
 ## Problem 12
@@ -220,4 +235,8 @@ def find_triangular_matrix_inverse(A):
     >>> find_triangular_matrix_inverse(A) == Mat(({0, 1, 2, 3}, {0, 1, 2, 3}), {(0, 1): -0.5, (1, 2): -0.3, (3, 2): 0.0, (0, 0): 1.0, (3, 3): 1.0, (3, 0): 0.0, (3, 1): 0.0, (2, 1): 0.0, (0, 2): -0.05000000000000002, (2, 0): 0.0, (1, 3): -0.87, (2, 3): -0.1, (2, 2): 1.0, (1, 0): 0.0, (0, 3): -3.545, (1, 1): 1.0})
     True
     '''
-    pass
+    rd = mat2rowdict(A)
+    labels = list(rd.keys())
+    rowlist = list(rd.values())
+    ret = [triangular_solve(rowlist, labels, Vec(A.D[0], {i: 1})) for i in A.D[0]]
+    return coldict2mat(ret)
