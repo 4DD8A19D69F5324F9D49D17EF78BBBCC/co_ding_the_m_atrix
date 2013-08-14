@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf981c41-5094-4872-8420-6273cc7da958" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw5.py" afterPath="$PROJECT_DIR$/hw5.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="coding_the_matrix.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1376442176939" ignored="false" />
     <file path="/geometry_lab.py" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1375930051065" ignored="false" />
     <file path="/hw4.py" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1376398586128" ignored="false" />
-    <file path="/hw5.py" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1376445051018" ignored="false" />
+    <file path="/hw5.py" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1376449931442" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +32,7 @@
       <file leaf-file-name="hw5.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hw5.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="20" selection-start="1977" selection-end="1977" vertical-scroll-proportion="0.43017456">
+            <state line="183" column="7" selection-start="5404" selection-end="5404" vertical-scroll-proportion="0.66334164">
               <folding>
                 <element signature="e#100#128#0" expanded="true" />
               </folding>
@@ -450,7 +448,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hw5.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="20" selection-start="1977" selection-end="1977" vertical-scroll-proportion="0.43017456">
+        <state line="183" column="7" selection-start="5404" selection-end="5404" vertical-scroll-proportion="0.66334164">
           <folding>
             <element signature="e#100#128#0" expanded="true" />
           </folding>
