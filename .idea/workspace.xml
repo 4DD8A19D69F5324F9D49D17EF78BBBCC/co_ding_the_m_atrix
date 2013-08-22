@@ -2,16 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf981c41-5094-4872-8420-6273cc7da958" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/image.py" afterPath="$PROJECT_DIR$/image.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/perspective_lab.py" afterPath="$PROJECT_DIR$/perspective_lab.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/coding_the_matrix.iml" afterPath="$PROJECT_DIR$/.idea/coding_the_matrix.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw6.py" afterPath="$PROJECT_DIR$/hw6.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="coding_the_matrix.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1376524563294" ignored="false" />
+    <file path="/Dummy.txt" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1377138971010" ignored="false" />
     <file path="/geometry_lab.py" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1375930051065" ignored="false" />
     <file path="/hw4.py" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1376398586128" ignored="false" />
     <file path="/hw5.py" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1376492805318" ignored="false" />
     <file path="/perspective_lab.py" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1376530495408" ignored="false" />
+    <file path="/hw6.py" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1377139314648" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,13 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="perspective_lab.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/perspective_lab.py">
+      <file leaf-file-name="hw6.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hw6.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="60" selection-start="2461" selection-end="2461" vertical-scroll-proportion="0.87520796">
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
+            <state line="29" column="32" selection-start="834" selection-end="834" vertical-scroll-proportion="0.42105263">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -64,14 +65,15 @@
         <option value="$PROJECT_DIR$/hw4.py" />
         <option value="$PROJECT_DIR$/hw5.py" />
         <option value="$PROJECT_DIR$/perspective_lab.py" />
+        <option value="$PROJECT_DIR$/hw6.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
-    <option name="y" value="-7" />
-    <option name="width" value="1368" />
-    <option name="height" value="776" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -99,6 +101,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -119,14 +122,15 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="appearance" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
+    <property name="last_opened_file_path" value="C:/Python33/python.exe" />
+    <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
@@ -281,14 +285,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-7" width="1368" height="776" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19242424" sideWeight="0.8192" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19621213" sideWeight="0.8192" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39872408" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -424,11 +428,6 @@
         <state line="20" column="34" selection-start="614" selection-end="614" vertical-scroll-proportion="0.35419127" />
       </provider>
     </entry>
-    <entry file="file:///usr/lib/python3.3/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="316" column="1" selection-start="10175" selection-end="10175" vertical-scroll-proportion="1.3677205" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hw4.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="286" column="0" selection-start="7899" selection-end="7899" vertical-scroll-proportion="1.0425171" />
@@ -436,19 +435,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hw5.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="179" column="8" selection-start="4754" selection-end="4754" vertical-scroll-proportion="0.025510205">
-          <folding>
-            <element signature="e#100#128#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="179" column="8" selection-start="4754" selection-end="4754" vertical-scroll-proportion="0.025510205" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/perspective_lab.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="60" selection-start="2461" selection-end="2461" vertical-scroll-proportion="0.87520796">
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state line="55" column="7" selection-start="1707" selection-end="1707" vertical-scroll-proportion="1.4473684">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw6.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="32" selection-start="834" selection-end="834" vertical-scroll-proportion="0.42105263">
+          <folding />
         </state>
       </provider>
     </entry>
