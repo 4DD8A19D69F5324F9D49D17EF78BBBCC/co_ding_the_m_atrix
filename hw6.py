@@ -9,25 +9,25 @@ from GF2 import one
 ## Problem 1
 # Write each matrix as a list of row lists
 
-echelon_form_1 = [[   1, 2, 0, 2, 0   ],
-                  [   0, 1, 0, 3, 4   ],
-                  [   0, 0, 2, 3, 4   ],
-                  [   0, 0, 0, 2, 0   ],
-                  [   0, 0, 0, 0, 4   ]]
+echelon_form_1 = [[1, 2, 0, 2, 0],
+                  [0, 1, 0, 3, 4],
+                  [0, 0, 2, 3, 4],
+                  [0, 0, 0, 2, 0],
+                  [0, 0, 0, 0, 4]]
 
-echelon_form_2 = [[   0, 4, 3, 4, 4   ],
-                  [   0, 5, 4, 2, 0   ],
-                  [   0, 0, 0, 0, 1   ],
-                  [   0, 0, 0, 0, 2   ]]
+echelon_form_2 = [[0, 4, 3, 4, 4],
+                  [0, 0, 4, 2, 0],
+                  [0, 0, 0, 0, 1],
+                  [0, 0, 0, 0, 0]]
 
-echelon_form_3 = [[   1, 0, 0, 1   ],
-                  [   0, 0, 0, 1   ],
-                  [   0, 0, 0, 1   ]]
+echelon_form_3 = [[1, 0, 0, 1],
+                  [0, 0, 0, 1],
+                  [0, 0, 0, 0]]
 
-echelon_form_4 = [[   1, 0, 0, 0   ],
-                  [   0, 1, 0, 0   ],
-                  [   0, 0, 0, 0   ],
-                  [   0, 0, 0, 1   ]]
+echelon_form_4 = [[1, 0, 0, 0],
+                  [0, 1, 0, 0],
+                  [0, 0, 0, 0],
+                  [0, 0, 0, 0]]
 
 
 
@@ -46,7 +46,6 @@ def is_echelon(A):
         False
     '''
     pass
-
 
 
 ## Problem 3
@@ -86,11 +85,10 @@ def echelon_solve(rowlist, label_list, b):
     pass
 
 
-
 ## Problem 6
-rowlist = [ ... ]    # Provide as a list of Vec instances
-label_list = [ ... ] # Provide as a list
-b = [ ... ]          # Provide as a list
+rowlist = [...]    # Provide as a list of Vec instances
+label_list = [...] # Provide as a list
+b = [...]          # Provide as a list
 
 
 
