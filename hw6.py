@@ -1,10 +1,13 @@
 # version code 988
 # Please fill out this stencil and submit using the provided submission script.
 
+import doctest
+
 from matutil import *
 from vecutil import *
 from GF2 import one
-import doctest
+import echelon
+
 
 
 ## Problem 1
@@ -100,7 +103,7 @@ def echelon_solve(rowlist, label_list, b):
     '''
     ret = Vec(set(label_list), {})
     for i, row in enumerate(reversed(rowlist)):
-        t = b[len(b)-i-1]
+        t = b[len(b) - i - 1]
         for x in label_list:
             t += row[x] * ret[x]
         if t == one:
@@ -112,48 +115,74 @@ def echelon_solve(rowlist, label_list, b):
 
 
 ## Problem 6
-rowlist = [...]    # Provide as a list of Vec instances
-label_list = [...] # Provide as a list
-b = [...]          # Provide as a list
 
+
+def solve(A, b):
+    col_label_list = sorted(A.D[1])
+    M = echelon.transformation(A, col_label_list)
+    U = M*A
+    U_rows_dict = mat2rowdict(U)
+    rowlist = [U_rows_dict[i] for i in U_rows_dict]
+    x = M*b
+    return echelon_solve(rowlist, col_label_list, [x[item] for item in x.D])
+
+D = {'A', 'B', 'C', 'D'}
+A = Mat(({'a', 'b', 'c', 'd'}, {'A', 'B', 'C', 'D'}),
+        {('a', 'B'): one, ('a', 'C'): 0, ('d', 'C'): one, ('a', 'A'): one, ('d', 'D'): one, ('d', 'A'): 0,
+         ('d', 'B'): 0, ('b', 'B'): 0, ('c', 'B'): one, ('a', 'C'): 0, ('c', 'A'): one, ('b', 'D'): one,
+         ('c', 'D'): one, ('c', 'C'): one, ('b', 'A'): one, ('a', 'D'): one})
+
+r = Vec({'a', 'b', 'c', 'd'}, {'a': one, 'c': one})
+
+
+col_label_list = sorted(A.D[1])
+M = echelon.transformation(A)
+U = M*A
+U_rows_dict = mat2rowdict(U)
+x = M*r
+
+
+rowlist = [U_rows_dict[i] for i in U_rows_dict]
+label_list = col_label_list
+b = [x[item] for item in x.D]
 
 
 ## Problem 7
-null_space_rows_a = {...} # Put the row numbers of M from the PDF
+null_space_rows_a = {3, 4} # Put the row numbers of M from the PDF
 
 
 
 ## Problem 8
-null_space_rows_b = {...}
+null_space_rows_b = {4}
 
 
 
 ## Problem 9
 # Write each vector as a list
-closest_vector_1 = [...]
-closest_vector_2 = [...]
-closest_vector_3 = [...]
+closest_vector_1 = [8.0/5, 16.0/5]
+closest_vector_2 = [0, 1, 0]
+closest_vector_3 = [3, 2, 1, -4]
 
 
 
 ## Problem 10
 # Write each vector as a list
 
-project_onto_1 = [...]
-projection_orthogonal_1 = [...]
+project_onto_1 = [2, 0]
+projection_orthogonal_1 = [0, 1]
 
-project_onto_2 = [...]
-projection_orthogonal_2 = [...]
+project_onto_2 = [-1.0/6, -1.0/3, 1.0/6]
+projection_orthogonal_2 = [7.0/6, 4.0/3, 23.0/6]
 
-project_onto_3 = [...]
-projection_orthogonal_3 = [...]
+project_onto_3 = [1, 1, 4]
+projection_orthogonal_3 = [0, 0, 0]
 
 
 
 ## Problem 11
-norm1 = ...
-norm2 = ...
-norm3 = ...
+norm1 = 3
+norm2 = 4
+norm3 = 1
 
 if __name__ == '__main__':
     doctest.testmod()
