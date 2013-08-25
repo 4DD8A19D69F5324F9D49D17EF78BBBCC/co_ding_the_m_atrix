@@ -2,8 +2,9 @@
 # Please fill out this stencil and submit using the provided submission script.
 
 from matutil import *
+from vecutil import *
 from GF2 import one
-
+import doctest
 
 
 ## Problem 1
@@ -45,15 +46,28 @@ def is_echelon(A):
         >>> is_echelon([[0,1,1],[0,1,0],[0,0,1]])
         False
     '''
-    pass
+    p = -1
+    for l in A:
+        flag = False
+        for idx, item in enumerate(l):
+            if item != 0:
+                if idx > p:
+                    p = idx
+                    flag = True
+                    break
+                else:
+                    return False
+        if not flag:
+            p = len(l) + 1
+    return True
 
 
 ## Problem 3
 # Give each answer as a list
 
-echelon_form_vec_a = ...
-echelon_form_vec_b = ...
-echelon_form_vec_c = ...
+echelon_form_vec_a = [1, 0, 3, 0]
+echelon_form_vec_b = [-3, 0, -2, 3]
+echelon_form_vec_c = [-5, 0, 2, 0, 2]
 
 
 
@@ -61,8 +75,8 @@ echelon_form_vec_c = ...
 # If a solution exists, give it as a list vector.
 # If no solution exists, provide "None".
 
-solving_with_echelon_form_a = ...
-solving_with_echelon_form_b = ...
+solving_with_echelon_form_a = None
+solving_with_echelon_form_b = [21, 0, 2, 0, 0]
 
 
 
@@ -78,11 +92,23 @@ def echelon_solve(rowlist, label_list, b):
         - Vec x such that rowlist * x is b
     >>> D = {'A','B','C','D','E'}
     >>> U_rows = [Vec(D, {'A':one, 'E':one}), Vec(D, {'B':one, 'E':one}), Vec(D,{'C':one})] 
-    >>> b_list = [one,0,one]>>> cols = ['A', 'B', 'C', 'D', 'E']
-    >>> echelon_solve(U_rows, cols, b_list)
-    Vec({'B', 'C', 'A', 'D', 'E'},{'B': 0, 'C': one, 'A': one})
+    >>> b_list = [one,0,one]
+    >>> cols = ['A', 'B', 'C', 'D', 'E']
+    >>> s = echelon_solve(U_rows, cols, b_list)
+    >>> rowdict2mat(U_rows) *s == list2vec(b_list)
+    True
     '''
-    pass
+    ret = Vec(set(label_list), {})
+    for i, row in enumerate(reversed(rowlist)):
+        t = b[len(b)-i-1]
+        for x in label_list:
+            t += row[x] * ret[x]
+        if t == one:
+            for x in label_list:
+                if row[x] == one:
+                    ret[x] = one
+                    break
+    return ret
 
 
 ## Problem 6
@@ -129,3 +155,5 @@ norm1 = ...
 norm2 = ...
 norm3 = ...
 
+if __name__ == '__main__':
+    doctest.testmod()
