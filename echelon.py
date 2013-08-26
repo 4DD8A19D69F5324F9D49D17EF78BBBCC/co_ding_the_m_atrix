@@ -30,7 +30,7 @@ def transformation_rows(rowlist_input, col_label_list = None):
     """
     one = GF2.one # replace this with 1 if working over R or C
     rowlist = list(rowlist_input)
-    if col_label_list == None: col_label_list = sorted(rowlist[0].D)
+    if col_label_list == None: col_label_list = sorted(rowlist[0].D, key=hash)
     m = len(rowlist)
     row_labels = set(range(m))
     M_rowlist = [Vec(row_labels, {i:one}) for i in range(m)]
@@ -56,7 +56,7 @@ def transformation(A, col_label_list = None):
     """
     row_labels, col_labels = A.D
     m = len(row_labels)
-    row_label_list = sorted(row_labels)
+    row_label_list = sorted(row_labels, key=hash)
     rowlist = [Vec(col_labels, {c:A[r,c] for c in col_labels}) for r in row_label_list]
     M_rows = transformation_rows(rowlist, col_label_list)
     M = Mat((set(range(m)), row_labels), {})
