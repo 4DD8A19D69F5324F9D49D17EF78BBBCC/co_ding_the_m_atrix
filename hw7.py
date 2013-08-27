@@ -18,8 +18,8 @@ def basis(vlist):
     Output:
         - a list of linearly independent Vecs with equal span to vlist
     '''
-    pass
-
+    olist = orthogonalize(vlist)
+    return [o for o in olist if  o*o>1e-20]
 
 
 ## Problem 2
@@ -30,7 +30,8 @@ def subset_basis(vlist):
     Output:
         - linearly independent subset of vlist with the same span as vlist
     '''
-    pass
+    olist = orthogonalize(vlist)
+    return [vlist[i] for i,o in enumerate(olist) if o*o>1e-20]
 
 
 
