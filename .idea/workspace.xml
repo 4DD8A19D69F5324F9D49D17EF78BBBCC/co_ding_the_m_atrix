@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf981c41-5094-4872-8420-6273cc7da958" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/coding_the_matrix.iml" afterPath="$PROJECT_DIR$/.idea/coding_the_matrix.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw7.py" afterPath="$PROJECT_DIR$/hw7.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="coding_the_matrix.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1377617545274" ignored="false" />
+    <file path="/Dummy.txt" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1377650631245" ignored="false" />
     <file path="/geometry_lab.py" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1375930051065" ignored="false" />
     <file path="/hw4.py" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1376398586128" ignored="false" />
     <file path="/hw5.py" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1376492805318" ignored="false" />
@@ -18,7 +16,8 @@
     <file path="/secret_sharing_lab.py" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1377422455630" ignored="false" />
     <file path="/factoring_lab.py" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1377523443816" ignored="false" />
     <file path="/machine_learning_lab.py" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1377526646004" ignored="false" />
-    <file path="/hw7.py" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1377617781859" ignored="false" />
+    <file path="/hw7.py" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1377653952311" ignored="false" />
+    <file path="/orthonormalization.py" changelist="bf981c41-5094-4872-8420-6273cc7da958" time="1377621737468" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +40,7 @@
       <file leaf-file-name="hw7.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hw7.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="0" selection-start="808" selection-end="808" vertical-scroll-proportion="0.5903399">
+            <state line="145" column="26" selection-start="4250" selection-end="4250" vertical-scroll-proportion="0.7584973">
               <folding>
                 <element signature="e#101#144#0" expanded="true" />
               </folding>
@@ -49,11 +48,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="orthonormalization.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/orthonormalization.py">
+      <file leaf-file-name="triangular.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/triangular.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -85,6 +86,7 @@
         <option value="$PROJECT_DIR$/secret_sharing_lab.py" />
         <option value="$PROJECT_DIR$/factoring_lab.py" />
         <option value="$PROJECT_DIR$/machine_learning_lab.py" />
+        <option value="$PROJECT_DIR$/orthonormalization.py" />
         <option value="$PROJECT_DIR$/hw7.py" />
       </list>
     </option>
@@ -94,6 +96,22 @@
     <option name="y" value="-8" />
     <option name="width" value="1382" />
     <option name="height" value="754" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Buildout</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -147,12 +165,12 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -307,7 +325,11 @@
       <created>1377422541580</created>
       <updated>1377422541580</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="temp save">
+      <created>1377621821875</created>
+      <updated>1377621821875</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -334,11 +356,11 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21136364" sideWeight="0.8192" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21439394" sideWeight="0.6705686" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39872408" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -396,7 +418,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed secret sharing lab" />
+    <option name="LAST_COMMIT_MESSAGE" value="temp save" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -411,26 +433,12 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="completed secret sharing lab" />
+    <MESSAGE value="temp save" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hw4.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometry_lab.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ecc_lab.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="21" selection-start="244" selection-end="244" vertical-scroll-proportion="0.1626506" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/geometry_lab.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="112" column="8" selection-start="2912" selection-end="2912" vertical-scroll-proportion="0.8932384" />
@@ -486,16 +494,37 @@
         <state line="76" column="13" selection-start="1697" selection-end="1697" vertical-scroll-proportion="1.2229618" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/orthogonalization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/orthonormalization.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="0" selection-start="803" selection-end="803" vertical-scroll-proportion="0.7894737" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QR.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/triangular.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hw7.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="808" selection-end="808" vertical-scroll-proportion="0.5903399">
+        <state line="145" column="26" selection-start="4250" selection-end="4250" vertical-scroll-proportion="0.7584973">
           <folding>
             <element signature="e#101#144#0" expanded="true" />
           </folding>
